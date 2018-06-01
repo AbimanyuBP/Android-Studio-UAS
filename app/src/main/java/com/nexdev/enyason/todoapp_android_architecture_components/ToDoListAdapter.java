@@ -128,6 +128,9 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.TaskVi
         notifyDataSetChanged();
     }
 
+    public List<Task> getTasks() {
+        return mTaskEntries;
+    }
 
     // Inner class for creating ViewHolders
     class TaskViewHolder extends RecyclerView.ViewHolder {

@@ -45,12 +45,21 @@ public class EditorActivity extends AppCompatActivity {
                int priority = getPriorityFromViews();
                Date date = new Date();
 
-               Task task  = new Task(text,priority,date);
+               final Task task  = new Task(text,priority,date);
 
 
-               mdb.taskDao().insertTask(task);
+               AppExecutor.getInstance().diskIO().execute(new Runnable() {
+                   @Override
+                   public void run() {
 
-               finish();
+                       mdb.taskDao().insertTask(task);
+
+                       finish();
+
+
+                   }
+               });
+
 
 
             }
