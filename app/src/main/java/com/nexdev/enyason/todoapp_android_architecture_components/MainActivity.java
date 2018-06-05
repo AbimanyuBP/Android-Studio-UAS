@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         }).attachToRecyclerView(recyclerView);
 
 
-        getTasks("onResume");
+        getTasks("onCreate");
 
 
     }
