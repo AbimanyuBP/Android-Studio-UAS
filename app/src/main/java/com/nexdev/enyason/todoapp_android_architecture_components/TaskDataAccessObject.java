@@ -1,5 +1,6 @@
 package com.nexdev.enyason.todoapp_android_architecture_components;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
@@ -19,7 +20,7 @@ import java.util.List;
 public interface TaskDataAccessObject {
 
     @Query("SELECT * FROM task ORDER BY priority")
-    List<Task> loadAllTask(); // returns a list of task object
+    LiveData<List<Task>> loadAllTask(); // returns a list of task object
 
 
     @Insert
@@ -32,6 +33,7 @@ public interface TaskDataAccessObject {
     @Delete
     void deleteTask(Task task);
 
-
+   @Query("SELECT * FROM task WHERE id = :id")
+   LiveData<Task> getTaskById(int id);
 
 }

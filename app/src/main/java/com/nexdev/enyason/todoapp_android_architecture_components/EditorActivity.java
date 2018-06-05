@@ -1,11 +1,18 @@
 package com.nexdev.enyason.todoapp_android_architecture_components;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
+import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.Date;
 
@@ -21,6 +28,11 @@ public class EditorActivity extends AppCompatActivity {
     Button buttonAdd;
     EditText etTask;
 
+    RadioButton radioButtonHigh;
+    RadioButton radioButtonMedium;
+    RadioButton radioButtonLow;
+
+
     AppDataBase mdb;
 
     @Override
@@ -32,7 +44,57 @@ public class EditorActivity extends AppCompatActivity {
 
         etTask = findViewById(R.id.editTextTaskDescription);
 
+
+        radioButtonHigh = findViewById(R.id.radButton1);
+        radioButtonMedium = findViewById(R.id.radButton2);
+        radioButtonLow = findViewById(R.id.radButton3);
+
+
         mdb = AppDataBase.getsInstance(getApplicationContext());
+
+        final Intent intent = getIntent();
+
+
+
+        if (intent != null && intent.hasExtra("id")) {
+            buttonAdd.setText("Update");
+//
+//            AppExecutor.getInstance().diskIO().execute(new Runnable() {
+//                @Override
+//                public void run() {
+
+            final LiveData<Task> task = mdb.taskDao().getTaskById(intent.getIntExtra("id", 0));
+            Log.i("DetailActivity ", " Reading DataBAse");
+
+            task.observe(EditorActivity.this, new Observer<Task>() {
+                @Override
+                public void onChanged(@Nullable Task task) {
+                    final int priority = task.getPriority();
+
+                    etTask.setText(task.getDescription());
+                    Toast.makeText(EditorActivity.this, task.getDescription().toString(), Toast.LENGTH_SHORT).show();
+                    setPriority(priority);
+
+                }
+            });
+
+
+
+
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            etTask.setText(task.getDescription());
+//
+//                            Toast.makeText(EditorActivity.this,task.getDescription().toString(),Toast.LENGTH_SHORT).show();
+//                            setPriority(priority);
+//                        }
+//                    });
+//                }
+//            });
+
+
+        }
 
 
         buttonAdd.setOnClickListener(new View.OnClickListener() {
@@ -41,36 +103,40 @@ public class EditorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               String text =  etTask.getText().toString().trim();
-               int priority = getPriorityFromViews();
-               Date date = new Date();
+                String text = etTask.getText().toString().trim();
+                int priority = getPriorityFromViews();
+                Date date = new Date();
 
-               final Task task  = new Task(text,priority,date);
-
-
-               AppExecutor.getInstance().diskIO().execute(new Runnable() {
-                   @Override
-                   public void run() {
-
-                       mdb.taskDao().insertTask(task);
-
-                       finish();
+                final Task task = new Task(text, priority, date);
 
 
-                   }
-               });
+                AppExecutor.getInstance().diskIO().execute(new Runnable() {
+                    @Override
+                    public void run() {
 
+                        if (intent != null && intent.hasExtra("id")) {
+
+
+                            task.setId(intent.getIntExtra("id", 0));
+                            mdb.taskDao().updateTask(task);
+                        } else {
+                            mdb.taskDao().insertTask(task);
+
+
+                        }
+
+                        finish();
+
+
+                    }
+                });
 
 
             }
         });
 
 
-
     }
-
-
-
 
 
     /**
@@ -90,5 +156,24 @@ public class EditorActivity extends AppCompatActivity {
                 priority = PRIORITY_LOW;
         }
         return priority;
+    }
+
+
+    public void setPriority(int priority) {
+
+        switch (priority) {
+
+            case PRIORITY_HIGH:
+                radioButtonHigh.setChecked(true);
+                break;
+            case PRIORITY_MEDIUM:
+                radioButtonMedium.setChecked(true);
+                break;
+            case PRIORITY_LOW:
+                radioButtonLow.setChecked(true);
+                break;
+
+        }
+
     }
 }

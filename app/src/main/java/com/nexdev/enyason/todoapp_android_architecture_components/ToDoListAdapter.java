@@ -17,6 +17,7 @@
 package com.nexdev.enyason.todoapp_android_architecture_components;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -69,10 +70,10 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.TaskVi
         Task taskEntry = mTaskEntries.get(position);
         String description = taskEntry.getDescription();
         int priority = taskEntry.getPriority();
+
+        final int id = taskEntry.getId(); // get item id
         String updatedAt = dateFormat.format(taskEntry.getUpdatedAt());
 
-
-//        Toast.makeText(mContext,description,Toast.LENGTH_LONG).show();
 
 
 
@@ -88,6 +89,17 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.TaskVi
         // Get the appropriate background color based on the priority
         int priorityColor = getPriorityColor(priority);
         priorityCircle.setColor(priorityColor);
+
+
+        // set Onclick Listener
+        holder.view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,EditorActivity.class);
+                intent.putExtra("id",id);
+                mContext.startActivity(intent);
+            }
+        });
     }
 
 
@@ -140,11 +152,13 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.TaskVi
         TextView updatedAtView;
         TextView priorityView;
 
-        /**
-         * Constructor for the TaskViewHolders.
-         *
-         * @param itemView The view inflated in onCreateViewHolder
-         */
+        View view;
+
+
+
+
+         // Constructor for the TaskViewHolders.
+
         public TaskViewHolder(View itemView) {
             super(itemView);
 
@@ -152,6 +166,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.TaskVi
             taskDescriptionView = itemView.findViewById(R.id.taskDescription);
             updatedAtView = itemView.findViewById(R.id.taskUpdatedAt);
             priorityView = itemView.findViewById(R.id.priorityTextView);
+            view = itemView;
         }
 
 

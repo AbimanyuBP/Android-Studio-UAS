@@ -1,12 +1,16 @@
 package com.nexdev.enyason.todoapp_android_architecture_components;
 
+import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.util.Log;
 import android.view.View;
 
 import java.util.List;
@@ -87,36 +91,47 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-
-
-                getTasks();
+                getTasks("OnSwipe");
 
 
             }
         }).attachToRecyclerView(recyclerView);
 
 
+        getTasks("onResume");
+
+
     }
 
-    private void getTasks() {
+    private void getTasks(final String s) {
 
-        AppExecutor.getInstance().diskIO().execute(new Runnable() {
+//        AppExecutor.getInstance().diskIO().execute(new Runnable() {
+//            @Override
+//            public void run() {
+
+        Log.i(s, " Reading from DataBase");
+        final LiveData<List<Task>> tasks = appDataBase.taskDao().loadAllTask();
+
+        tasks.observe(MainActivity.this, new Observer<List<Task>>() {
+
             @Override
-            public void run() {
-
-                final List<Task> tasks = appDataBase.taskDao().loadAllTask();
-
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        toDoListAdapter.setTasks(tasks);
-
-                    }
-                });
-
+            public void onChanged(@Nullable List<Task> tasks) {
+                toDoListAdapter.setTasks(tasks);
 
             }
         });
+
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        toDoListAdapter.setTasks(tasks);
+//
+//                    }
+//                });
+//
+//
+//            }
+//        });
 
 
     }
@@ -126,8 +141,10 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
 
-        getTasks();
+//        final List<Task> tasks = appDataBase.taskDao().loadAllTask();
+//        toDoListAdapter.setTasks(tasks);
 
 
     }
+
 }
