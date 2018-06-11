@@ -2,6 +2,8 @@ package com.nexdev.enyason.todoapp_android_architecture_components;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -64,9 +66,11 @@ public class EditorActivity extends AppCompatActivity {
 //                public void run() {
 
             final LiveData<Task> task = mdb.taskDao().getTaskById(intent.getIntExtra("id", 0));
-            Log.i("DetailActivity ", " Reading DataBAse");
+//            Log.i("DetailActivity ", " Reading DataBAse");
 
-            task.observe(EditorActivity.this, new Observer<Task>() {
+            EditorScreenViewModel viewModel = new EditorScreenViewModel(mdb,intent.getIntExtra("id",0));
+
+            viewModel.getTask().observe(EditorActivity.this, new Observer<Task>() {
                 @Override
                 public void onChanged(@Nullable Task task) {
                     final int priority = task.getPriority();

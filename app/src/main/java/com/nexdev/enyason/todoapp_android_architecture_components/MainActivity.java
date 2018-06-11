@@ -2,6 +2,8 @@ package com.nexdev.enyason.todoapp_android_architecture_components;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
+import android.arch.lifecycle.ViewModelProvider;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -108,10 +110,13 @@ public class MainActivity extends AppCompatActivity {
 //            @Override
 //            public void run() {
 
-        Log.i(s, " Reading from DataBase");
-        final LiveData<List<Task>> tasks = appDataBase.taskDao().loadAllTask();
 
-        tasks.observe(MainActivity.this, new Observer<List<Task>>() {
+//        final LiveData<List<Task>> tasks = appDataBase.taskDao().loadAllTask();
+
+
+        MainScreenViewModel viewModel = ViewModelProviders.of(this).get(MainScreenViewModel.class);
+
+        viewModel.getTaskList().observe(MainActivity.this, new Observer<List<Task>>() {
 
             @Override
             public void onChanged(@Nullable List<Task> tasks) {
