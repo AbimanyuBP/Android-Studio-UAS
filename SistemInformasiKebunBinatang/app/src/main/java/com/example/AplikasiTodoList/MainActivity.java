@@ -1,4 +1,4 @@
-package com.example.sisteminformasikebunbinatang;
+package com.example.AplikasiTodoList;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,9 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-import com.example.sisteminformasikebunbinatang.dao.HewanDAO;
-import com.example.sisteminformasikebunbinatang.model.Kandang;
-import com.example.sisteminformasikebunbinatang.model.RelasiKandangKeHewan;
+import com.example.AplikasiTodoList.model.Kandang;
+import com.example.AplikasiTodoList.model.RelasiKandangKeHewan;
 
 import java.util.ArrayList;
 import java.util.Arrays;

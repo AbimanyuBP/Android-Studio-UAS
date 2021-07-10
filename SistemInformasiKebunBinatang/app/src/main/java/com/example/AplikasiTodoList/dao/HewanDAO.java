@@ -1,4 +1,4 @@
-package com.example.sisteminformasikebunbinatang.dao;
+package com.example.AplikasiTodoList.dao;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -7,9 +7,8 @@ import androidx.room.Query;
 import androidx.room.Transaction;
 import androidx.room.Update;
 
-import com.example.sisteminformasikebunbinatang.model.Hewan;
-import com.example.sisteminformasikebunbinatang.model.Kandang;
-import com.example.sisteminformasikebunbinatang.model.RelasiHewanKeKandang;
+import com.example.AplikasiTodoList.model.Hewan;
+import com.example.AplikasiTodoList.model.RelasiHewanKeKandang;
 
 import java.util.List;
 

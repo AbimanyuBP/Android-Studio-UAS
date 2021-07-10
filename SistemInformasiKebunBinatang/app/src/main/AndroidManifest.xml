@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.sisteminformasikebunbinatang">
+    package="com.example.AplikasiTodoList">
 
     <application
         android:allowBackup="true"
@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SistemInformasiKebunBinatang">
-        <activity android:name="com.example.sisteminformasikebunbinatang.RincianDataHewan"></activity>
-        <activity android:name="com.example.sisteminformasikebunbinatang.RincianDataKandang"/>
-        <activity android:name="com.example.sisteminformasikebunbinatang.MainActivity">
+        <activity android:name="com.example.AplikasiTodoList.RincianDataHewan"></activity>
+        <activity android:name="com.example.AplikasiTodoList.RincianDataKandang"/>
+        <activity android:name="com.example.AplikasiTodoList.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

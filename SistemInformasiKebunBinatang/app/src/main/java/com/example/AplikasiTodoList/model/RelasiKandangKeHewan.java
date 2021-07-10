@@ -1,4 +1,4 @@
-package com.example.sisteminformasikebunbinatang.model;
+package com.example.AplikasiTodoList.model;
 
 import androidx.room.Embedded;
 import androidx.room.Relation;

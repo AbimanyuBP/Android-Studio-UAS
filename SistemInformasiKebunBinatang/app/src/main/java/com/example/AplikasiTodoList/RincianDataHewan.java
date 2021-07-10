@@ -1,4 +1,4 @@
-package com.example.sisteminformasikebunbinatang;
+package com.example.AplikasiTodoList;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,9 +14,9 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.sisteminformasikebunbinatang.model.DateTypeConverter;
-import com.example.sisteminformasikebunbinatang.model.Hewan;
-import com.example.sisteminformasikebunbinatang.model.RelasiKandangKeHewan;
+import com.example.AplikasiTodoList.model.DateTypeConverter;
+import com.example.AplikasiTodoList.model.Hewan;
+import com.example.AplikasiTodoList.model.RelasiKandangKeHewan;
 
 import java.util.ArrayList;
 import java.util.Calendar;

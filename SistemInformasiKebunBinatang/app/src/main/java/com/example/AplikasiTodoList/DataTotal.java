@@ -1,7 +1,7 @@
-package com.example.sisteminformasikebunbinatang;
+package com.example.AplikasiTodoList;
 
-import com.example.sisteminformasikebunbinatang.model.Hewan;
-import com.example.sisteminformasikebunbinatang.model.RelasiKandangKeHewan;
+import com.example.AplikasiTodoList.model.Hewan;
+import com.example.AplikasiTodoList.model.RelasiKandangKeHewan;
 
 public class DataTotal {
     /*

@@ -1,4 +1,4 @@
-package com.example.sisteminformasikebunbinatang.model;
+package com.example.AplikasiTodoList.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

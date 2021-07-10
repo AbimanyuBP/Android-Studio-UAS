@@ -1,4 +1,4 @@
-package com.example.sisteminformasikebunbinatang;
+package com.example.AplikasiTodoList;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -16,8 +16,8 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.example.sisteminformasikebunbinatang.model.Hewan;
-import com.example.sisteminformasikebunbinatang.model.RelasiKandangKeHewan;
+import com.example.AplikasiTodoList.model.Hewan;
+import com.example.AplikasiTodoList.model.RelasiKandangKeHewan;
 
 import java.util.ArrayList;
 
