@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    tools:context="com.example.sisteminformasikebunbinatang.MainActivity">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pendataan Hewan Baru"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:text="Pilih Jenis Hewan:"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:id="@+id/spinnerJenisHewan"
+            android:layout_width="145dp"
+            android:layout_height="30dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnCariKandang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cari Kandang" />
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="20sp" />
+
+    <TextView
+        android:id="@+id/textViewHeadingDaftarKandang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="Daftar Kandang"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/editTextNamaKandangBaru"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="nama kandang baru"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnTambah"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tambah!" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listViewKandang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+</LinearLayout>
