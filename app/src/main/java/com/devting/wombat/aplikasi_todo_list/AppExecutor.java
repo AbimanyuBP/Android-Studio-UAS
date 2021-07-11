@@ -1,8 +1,4 @@
-package com.nexdev.enyason.todoapp_android_architecture_components;
-
-import android.os.Handler;
-import android.os.Looper;
-import android.support.annotation.NonNull;
+package com.devting.wombat.aplikasi_todo_list;
 
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;

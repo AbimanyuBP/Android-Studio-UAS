@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-package com.nexdev.enyason.todoapp_android_architecture_components;
+package com.devting.wombat.aplikasi_todo_list;
 
 import android.content.Context;
 import android.content.Intent;
@@ -25,7 +25,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.List;

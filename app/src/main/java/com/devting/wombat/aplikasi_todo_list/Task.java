@@ -1,8 +1,7 @@
-package com.nexdev.enyason.todoapp_android_architecture_components;
+package com.devting.wombat.aplikasi_todo_list;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.util.Date;

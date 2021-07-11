@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TodoApp_Android_Architecture_Components.iml" filepath="$PROJECT_DIR$/TodoApp_Android_Architecture_Components.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/TodoApp_Android_Architecture_Components.iml" filepath="$PROJECT_DIR$/.idea/modules/TodoApp_Android_Architecture_Components.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/TodoApp_Android_Architecture_Components.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/TodoApp_Android_Architecture_Components.app.iml" />
     </modules>
   </component>
 </project>
