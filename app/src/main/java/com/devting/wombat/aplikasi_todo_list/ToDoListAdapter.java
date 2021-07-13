@@ -26,6 +26,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.devting.wombat.aplikasi_todo_list.model.Task;
+
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
@@ -68,7 +70,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.TaskVi
         // Determine the values of the wanted data
         Task taskEntry = mTaskEntries.get(position);
         String description = taskEntry.getDescription();
-        int priority = taskEntry.getPriority();
+        String priority = taskEntry.getPriority();
 
         final int id = taskEntry.getId(); // get item id
         String updatedAt = dateFormat.format(taskEntry.getUpdatedAt());
@@ -86,7 +88,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.TaskVi
 
         GradientDrawable priorityCircle = (GradientDrawable) holder.priorityView.getBackground();
         // Get the appropriate background color based on the priority
-        int priorityColor = getPriorityColor(priority);
+        int priorityColor = getPriorityColor(1);
         priorityCircle.setColor(priorityColor);
 
 

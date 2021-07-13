@@ -12,6 +12,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
 
+import com.devting.wombat.aplikasi_todo_list.model.Task;
+
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {

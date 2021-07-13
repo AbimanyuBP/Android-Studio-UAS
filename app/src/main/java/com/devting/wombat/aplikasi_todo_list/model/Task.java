@@ -1,4 +1,4 @@
-package com.devting.wombat.aplikasi_todo_list;
+package com.devting.wombat.aplikasi_todo_list.model;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
@@ -17,13 +17,13 @@ public class Task {
     private int id;
 
     private String description;
-    private int priority;
+    private String priority;
+
     @ColumnInfo(name = "updated_at")
     private Date updatedAt;
 
 
-
-    public Task(String description, int priority, Date updatedAt) {
+    public Task(String description, String priority, Date updatedAt) {
         this.description = description;
         this.priority = priority;
         this.updatedAt = updatedAt;
@@ -38,7 +38,7 @@ public class Task {
         return description;
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return priority;
     }
 
@@ -55,7 +55,7 @@ public class Task {
         this.description = description;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 

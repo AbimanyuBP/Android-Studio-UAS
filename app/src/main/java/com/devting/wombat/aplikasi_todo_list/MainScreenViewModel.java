@@ -6,6 +6,8 @@ import android.arch.lifecycle.LiveData;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.devting.wombat.aplikasi_todo_list.model.Task;
+
 import java.util.List;
 
 /**

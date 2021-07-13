@@ -8,6 +8,8 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 import android.arch.persistence.room.Update;
 
+import com.devting.wombat.aplikasi_todo_list.model.Task;
+
 import java.util.List;
 
 /**

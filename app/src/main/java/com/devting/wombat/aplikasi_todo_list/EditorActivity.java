@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.devting.wombat.aplikasi_todo_list.model.Task;
 
 import java.util.Date;
 
@@ -19,9 +22,10 @@ public class EditorActivity extends AppCompatActivity {
 
 
     // Constants for priority
-    public static final int PRIORITY_HIGH = 1;
-    public static final int PRIORITY_MEDIUM = 2;
-    public static final int PRIORITY_LOW = 3;
+    public static final String PRIORITY_HIGH = "Tugas";
+    public static final String PRIORITY_MEDIUM = "Rumah";
+    public static final String PRIORITY_LOW = "Hobi";
+
 
 
     Button buttonAdd;
@@ -30,6 +34,8 @@ public class EditorActivity extends AppCompatActivity {
     RadioButton radioButtonHigh;
     RadioButton radioButtonMedium;
     RadioButton radioButtonLow;
+
+    Spinner spinnerkat;
 
 
     AppDataBase mdb;
@@ -56,7 +62,7 @@ public class EditorActivity extends AppCompatActivity {
 
 
         if (intent != null && intent.hasExtra("id")) {
-            buttonAdd.setText("Update");
+            buttonAdd.setText("Ubah");
 //
 //            AppExecutor.getInstance().diskIO().execute(new Runnable() {
 //                @Override
@@ -70,7 +76,7 @@ public class EditorActivity extends AppCompatActivity {
             viewModel.getTask().observe(EditorActivity.this, new Observer<Task>() {
                 @Override
                 public void onChanged(@Nullable Task task) {
-                    final int priority = task.getPriority();
+                    final String priority = task.getPriority();
 
                     etTask.setText(task.getDescription());
                     Toast.makeText(EditorActivity.this, task.getDescription().toString(), Toast.LENGTH_SHORT).show();
@@ -105,7 +111,7 @@ public class EditorActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String text = etTask.getText().toString().trim();
-                int priority = getPriorityFromViews();
+                String priority = getPriorityFromViews();
                 Date date = new Date();
 
                 final Task task = new Task(text, priority, date);
@@ -143,8 +149,8 @@ public class EditorActivity extends AppCompatActivity {
     /**
      * getPriority is called whenever the selected priority needs to be retrieved
      */
-    public int getPriorityFromViews() {
-        int priority = 1;
+    public String getPriorityFromViews() {
+        String  priority = "Tugas";
         int checkedId = ((RadioGroup) findViewById(R.id.radioGroup)).getCheckedRadioButtonId();
         switch (checkedId) {
             case R.id.radButton1:
@@ -160,7 +166,7 @@ public class EditorActivity extends AppCompatActivity {
     }
 
 
-    public void setPriority(int priority) {
+    public void setPriority(String priority) {
 
         switch (priority) {
 

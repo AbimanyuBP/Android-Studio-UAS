@@ -7,6 +7,8 @@ import android.arch.persistence.room.TypeConverters;
 import android.content.Context;
 import android.util.Log;
 
+import com.devting.wombat.aplikasi_todo_list.model.Task;
+
 /**
  * Created by enyason on 5/28/18.
  */

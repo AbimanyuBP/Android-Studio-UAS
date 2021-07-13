@@ -4,6 +4,8 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.ViewModel;
 import android.util.Log;
 
+import com.devting.wombat.aplikasi_todo_list.model.Task;
+
 /**
  * Created by enyason on 6/7/18.
  */
